@@ -12,6 +12,7 @@
     --blue-clr: #007bff;
     --blue-secondary-clr: #43a7cb3a;
     --links-clr: #4c4d53ad;
+    --intern-form-border: #aaa;
     
 
     --third-clr: #747a82;
@@ -22,6 +23,15 @@
     --text-color: white;
     --danger-color: red;
 }
+
+/* :root[data-theme="dark"] {
+    --bg-color: #171519;
+    --sidebar-bg: #242126;
+    --card-text-clr: #8a8192;
+    --links-clr: #fff;
+    --intern-form-border: #aaa;
+    --form-clr: #242126;
+} */
 
 *, ::before,
 ::after {
@@ -266,8 +276,14 @@ nav span {
     padding-inline: .55em;
     flex-direction: row-reverse;
     align-items: center;
-    outline: 2px solid var(--links-clr);
+    outline: 2px solid var(--intern-form-border);
     border-radius: .35em;
+}
+
+.welcome-display-container kbd {
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--links-clr);
 }
 
 nav .hamburger {
@@ -359,7 +375,7 @@ nav .hamburger {
     background-color: var(--form-clr);
     gap: 1em;
     border-radius: .55em;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: 1px solid var(--intern-form-border);
     z-index: 50;
     padding: 2em;
 }
@@ -377,9 +393,22 @@ nav .hamburger {
     outline: 2px solid rgb(89, 89, 89);
 }
 
-#intern-form input[type=file] {
-    outline-style: dashed;
+.form-control label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    text-align: center;
+    color: var(--links-clr);
+    outline: dashed var(--links-clr);
     outline-width: 2px;
+    border-radius: .35em;
+    padding: .75em;
+    cursor: pointer;
+}
+
+#intern-form input[type=file] {
+    display: none;
 }
 
 #current-face {
@@ -636,6 +665,10 @@ tr {
         overflow-x: auto;
     }
 
+    #search-bar {
+        width: 6em;
+    }
+
     .table-container {
         position: static;
     }
@@ -677,6 +710,10 @@ tr {
         height: 40vh;
         width: 90vw;
         margin-left: 1em;
+    }
+
+    #search-bar {
+        width: 4em;
     }
 }
 
